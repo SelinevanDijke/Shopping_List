@@ -1,38 +1,23 @@
-import React from 'react'
-import App from '/Users/selinevandijke/Documents/Shopping-List/my-shopping-list/src/App.js';
-import ListItem from './ListItem'
-    
-class List extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            groceryItems: [
-                { id: 1, title: "Bread" },
-                { id: 2, title: "Coffee" },
-                { id: 3, title: "Banana"}
-            ],
-        }
-    }
-    
-    onItemClick(item) {
-        console.log(`Clicked ${item.id}: ${item.title}`);
-    }
+import React from "react";
+import ListItem from "./ListItem.js";
 
-    render() {
-        return (
-            <div>
-                <ul>
-                    {this.state.groceryItems.map((item) => (
-                        <ListItem
-                            key={item.id}
-                            item={item}
-                            clickItem={() => this.onItemClick(item)}
-                        />
-                    ))}
-                </ul>
-            </div>
-        )
-    }
+class List extends React.Component {
+  render() {
+    return (
+      <div>
+        <ul className="app-list">
+          {this.props.items.map((item) => (
+            <ListItem
+              key={item.id}
+              item={item}
+              clickItem={() => this.props.onItemClick(item)}
+              showQuantities={this.props.showQuantities}
+            />
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
 
-export default List
+export default List;

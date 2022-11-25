@@ -1,19 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import List from './components/List.js';
-import ListItem from './components/ListItem.js'
-import { render } from '@testing-library/react';
-
+import "./App.css";
+import Container from "./components/Container.js";
 
 function App() {
-    
-    return (
-        <List />
-    )
-    
+  return (
+    <div className="App">
+      <Container />
+    </div>
+  );
 }
 
-export default App
+export default App;
